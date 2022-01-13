@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics;
 using Windows.Storage;
 using Windows.UI;
 
@@ -31,7 +32,7 @@ namespace WinUI3TitleBar
 	{
 		public AppWindow AW { get; set; }
 		public bool IsCustomizationSupported { get; set; } = false;
-		public string WindowTitle { get; set; }
+		public string WindowTitle { get; set; } = "Window Title";
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -44,24 +45,36 @@ namespace WinUI3TitleBar
 			{
 				AW = GetAppWindowForCurrentWindow();
 				AW.TitleBar.ExtendsContentIntoTitleBar = true;
-				CustomDragRegion.Height = AW.TitleBar.Height;
-				WindowTitle = AW.Title = "Window Title";
+				TitleBar.Height = AW.TitleBar.Height;
+				AW.Title = WindowTitle;
 				AW.Closing += AW_Closing;
-				AW.SetIcon(Path.Combine(Package.Current.Installed­Location.Path, @"Assets/", @"StoreLogo.png"));
+				CustomDragRegion.SizeChanged += CustomDragRegion_SizeChanged;
 			}
 			else
 			{
-				CustomDragRegion.BackgroundTransition = null;
-				CustomDragRegion.Background = null;
+				TitleBar.BackgroundTransition = null;
+				TitleBar.Background = null;
 				ExtendsContentIntoTitleBar = true;
-				CustomDragRegion.Height = 28;
+				TitleBar.Height = 28;
 				SetTitleBar(CustomDragRegion);
-
-				WindowTitle = Title = "Window Tilte";
+				Title = WindowTitle;
 			}
 
 			UpdateColors(RootGrid.RequestedTheme);
 			ThemeBox.SelectionChanged += ThemeBox_SelectionChanged;
+		}
+
+		private void CustomDragRegion_SizeChanged(object sender, SizeChangedEventArgs e)
+		{
+			if (IsCustomizationSupported && AW != null)
+			{
+				int x = (int)InteractiveElement.ActualWidth;
+				int y = 0;
+				int width = (int)e.NewSize.Width;
+				int height = (int)e.NewSize.Height;
+
+				AW.TitleBar.SetDragRectangles(new RectInt32[] { new RectInt32(x, y, width, height) });
+			}
 		}
 
 		private AppWindow GetAppWindowForCurrentWindow()

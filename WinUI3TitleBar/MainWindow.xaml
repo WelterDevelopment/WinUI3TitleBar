@@ -12,11 +12,23 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<Grid Visibility="Visible" Grid.Row="0" Padding="6"  x:Name="CustomDragRegion"  IsHitTestVisible="False" Background="{ThemeResource WindowCaptionBackground}">
+		<Grid Visibility="Visible" Grid.Row="0" x:Name="TitleBar" Background="{ThemeResource WindowCaptionBackground}" >
 			<Grid.BackgroundTransition>
 				<BrushTransition/>
 			</Grid.BackgroundTransition>
-			<TextBlock Text="{x:Bind WindowTitle}" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}"></TextBlock>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid Grid.Column="0" x:Name="InteractiveElement" Background="{ThemeResource WindowCaptionBackground}">
+				<Grid.BackgroundTransition>
+					<BrushTransition/>
+				</Grid.BackgroundTransition>
+				<ToggleButton Padding="2" Margin="2" Content="{x:Bind WindowTitle}" VerticalAlignment="Center" ></ToggleButton>
+			</Grid>
+			<Grid Grid.Column="1" x:Name="CustomDragRegion" IsHitTestVisible="False" >
+
+			</Grid>
 		</Grid>
 		<Grid Grid.Row="1" x:Name="ContentGrid" Padding="24" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  >
 			<Grid.BackgroundTransition>
