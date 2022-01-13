@@ -68,10 +68,11 @@ namespace WinUI3TitleBar
 		{
 			if (IsCustomizationSupported && AW != null)
 			{
-				int x = (int)InteractiveElement.ActualWidth;
+				int width = (int)(RootGrid.XamlRoot.RasterizationScale * e.NewSize.Width);
+				int height = (int)(RootGrid.XamlRoot.RasterizationScale * e.NewSize.Height);
+				int x = (int)(RootGrid.XamlRoot.RasterizationScale * InteractiveElement.ActualWidth);
 				int y = 0;
-				int width = (int)e.NewSize.Width;
-				int height = (int)e.NewSize.Height;
+				
 
 				AW.TitleBar.SetDragRectangles(new RectInt32[] { new RectInt32(x, y, width, height) });
 			}
