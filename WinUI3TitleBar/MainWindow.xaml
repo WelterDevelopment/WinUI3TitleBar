@@ -12,7 +12,7 @@
 			<RowDefinition Height="Auto"/>
 			<RowDefinition Height="*"/>
 		</Grid.RowDefinitions>
-		<Grid Visibility="Visible" Grid.Row="0" x:Name="TitleBar" Background="{ThemeResource WindowCaptionBackground}" >
+		<Grid Visibility="Visible" Grid.Row="0" x:Name="TitleBar" Background="{ThemeResource AccentBackground}" >
 			<Grid.BackgroundTransition>
 				<BrushTransition/>
 			</Grid.BackgroundTransition>
@@ -20,7 +20,7 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			<Grid Grid.Column="0" x:Name="InteractiveElement" Background="{ThemeResource WindowCaptionBackground}">
+			<Grid Grid.Column="0" x:Name="InteractiveElement" Background="{ThemeResource AccentBackground}">
 				<Grid.BackgroundTransition>
 					<BrushTransition/>
 				</Grid.BackgroundTransition>

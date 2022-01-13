@@ -59,7 +59,7 @@ namespace WinUI3TitleBar
 				SetTitleBar(CustomDragRegion);
 				Title = WindowTitle;
 			}
-
+			RootGrid.RequestedTheme = (ElementTheme)Enum.Parse(typeof(ElementTheme), Application.Current.RequestedTheme.ToString()); ;
 			UpdateColors(RootGrid.RequestedTheme);
 			ThemeBox.SelectionChanged += ThemeBox_SelectionChanged;
 		}
@@ -114,6 +114,11 @@ namespace WinUI3TitleBar
 				AW.TitleBar.ButtonPressedBackgroundColor = theme == ElementTheme.Light ? (Color)App.Current.Resources["SystemAccentColorLight1"] : (Color)App.Current.Resources["SystemAccentColorDark1"];
 				AW.TitleBar.ButtonForegroundColor = theme == ElementTheme.Light ? Colors.Black : Colors.White;
 				AW.TitleBar.ButtonInactiveForegroundColor = theme == ElementTheme.Light ? Color.FromArgb(255, 50, 50, 50) : Color.FromArgb(255, 200, 200, 200);
+			}
+			else
+			{
+				Application.Current.Resources["WindowCaptionBackground"] = theme == ElementTheme.Light ? (Color)App.Current.Resources["SystemAccentColorLight2"] : (Color)App.Current.Resources["SystemAccentColorDark1"];
+				Application.Current.Resources["WindowCaptionBackgroundDisabled"] = theme == ElementTheme.Light ? (Color)App.Current.Resources["SystemAccentColorLight2"] : (Color)App.Current.Resources["SystemAccentColorDark1"];
 			}
 		}
 

@@ -18,6 +18,8 @@
 					<SolidColorBrush x:Key="WindowCaptionBackground" Color="{ThemeResource SystemAccentColorDark1}"></SolidColorBrush>
 					<SolidColorBrush x:Key="WindowCaptionBackgroundDisabled" Color="{ThemeResource SystemAccentColorDark1}"></SolidColorBrush>
 
+					<SolidColorBrush x:Key="AccentBackground" Color="{ThemeResource SystemAccentColorDark1}"></SolidColorBrush>
+
 					<Color x:Key="ForegroundColor">#FFF</Color>
 					<Color x:Key="BackgroundColor">#000</Color>
 					<Color x:Key="ForegroundLightColor">#AAA</Color>
@@ -37,6 +39,8 @@
 					<SolidColorBrush x:Key="WindowCaptionForegroundDisabled">#333</SolidColorBrush>
 					<SolidColorBrush x:Key="WindowCaptionBackground" Color="{ThemeResource SystemAccentColorLight2}"></SolidColorBrush>
 					<SolidColorBrush x:Key="WindowCaptionBackgroundDisabled" Color="{ThemeResource SystemAccentColorLight2}"></SolidColorBrush>
+
+					<SolidColorBrush x:Key="AccentBackground" Color="{ThemeResource SystemAccentColorLight2}"></SolidColorBrush>
 
 					<Color x:Key="ForegroundColor">#000</Color>
 					<Color x:Key="BackgroundColor">#FFF</Color>
