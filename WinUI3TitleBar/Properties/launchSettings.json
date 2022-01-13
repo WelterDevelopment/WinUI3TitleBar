@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "WinUI3TitleBar (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "WinUI3TitleBar (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
